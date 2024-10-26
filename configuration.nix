@@ -118,13 +118,13 @@
     vesktop # for discord audio sharing
     anki
     gimp
-    prismlauncher # minecraft
     qbittorrent
     ffmpeg
     vlc
     gramps
     handbrake
     nodejs
+    obs-studio
   ];
 
 
