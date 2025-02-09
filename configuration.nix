@@ -35,7 +35,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  services.mozillavpn.enable = true;
   users.users.recursory = {
     isNormalUser = true;
 # Debatable.
@@ -62,7 +61,6 @@
       git
       gparted
       keepassxc
-      mozillavpn
       steam
       obsidian
       milkytracker
@@ -76,7 +74,10 @@
       handbrake
       nodejs
       obs-studio
-  ];
+      audacity
+      quodlibet
+      pkgs.godot_4
+      ];
   services = {
     flatpak.enable = true;
     openssh.enable = true;
@@ -86,15 +87,18 @@
         variant = "";
       };
       enable = true;
-      libinput.enable = true;
       displayManager.lightdm.enable = true;
       desktopManager.cinnamon.enable = true;
     };
+    libinput.enable = true;
     mullvad-vpn = {
       enable = true;
       package = pkgs.mullvad-vpn;
     };
   };
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
   virtualisation.docker.enable = true;
+  fonts.packages = with pkgs; [
+    noto-fonts-cjk-sans
+  ];
 }
