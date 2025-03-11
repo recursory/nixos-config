@@ -47,6 +47,7 @@
   programs = {
     firefox.enable = true;
     udevil.enable = true;
+    nix-ld.enable = true;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -77,6 +78,8 @@
       audacity
       quodlibet
       pkgs.godot_4
+      imagemagick
+      icu
       ];
   services = {
     flatpak.enable = true;
