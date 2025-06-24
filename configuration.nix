@@ -14,17 +14,28 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   time.timeZone = "America/Los_Angeles";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
+    inputMethod = {
+      enabled = "fcitx5";
+#fcitx5.engines = with pkgs.fcitx-engines; [ mozc ];
+      fcitx5.addons = with pkgs; [
+        fcitx5-mozc
+          fcitx5-gtk
+      ];
+    };
+
   };
   services.printing.enable = true;
   hardware.pulseaudio.enable = false;
@@ -46,6 +57,7 @@
   }; 
   programs = {
     firefox.enable = true;
+#thunderbird.enable = true;
     udevil.enable = true;
     nix-ld.enable = true;
     steam = {
@@ -79,7 +91,15 @@
       quodlibet
       pkgs.godot_4
       imagemagick
-      icu
+      lmms
+      icu.dev
+      discordchatexporter-cli
+#trenchbroom
+#qbittorrent
+      yt-dlp
+      libGL
+      htop
+      btop
       ];
   services = {
     flatpak.enable = true;
@@ -103,5 +123,29 @@
   virtualisation.docker.enable = true;
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
+      carlito
+      dejavu_fonts
+      ipafont
+      kochi-substitute
+      source-code-pro
+      ttf_bitstream_vera
   ];
+
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "DejaVu Sans Mono"
+      "IPAGothic"
+    ];
+    sansSerif = [
+      "DejaVu Sans"
+      "IPAPGothic"
+    ];
+    serif = [
+      "DejaVu Serif"
+      "IPAPMincho"
+    ];
+  };
+
+
+
 }
