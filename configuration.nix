@@ -28,17 +28,18 @@
       LC_TIME = "en_US.UTF-8";
     };
     inputMethod = {
-      enabled = "fcitx5";
+      type = "fcitx5";
+      enable = true;
 #fcitx5.engines = with pkgs.fcitx-engines; [ mozc ];
-      fcitx5.addons = with pkgs; [
+        fcitx5.addons = with pkgs; [
         fcitx5-mozc
           fcitx5-gtk
-      ];
+        ];
     };
 
   };
   services.printing.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
